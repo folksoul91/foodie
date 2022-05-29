@@ -1,0 +1,50 @@
+body {
+  box-sizing: border-box;
+}
+.master-container {
+  background-color: white;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+  padding-right: 3rem;
+  padding-left: 3rem;
+}
+
+.master-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  border-bottom-style: groove;
+  border-bottom-width: thin;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+  text-decoration: none;
+}
+.logo-img {
+  width: 142px;
+  height: 28px;
+}
+
+.nav-ul {
+  display: flex;
+  margin-bottom: 0;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.a {
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+.footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
