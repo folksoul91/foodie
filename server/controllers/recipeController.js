@@ -48,3 +48,10 @@ exports.searchForRecipe = async (req, res) => {
   });
   res.render("search", { title: "Search", recipe });
 };
+
+// See Trending - button
+exports.seeTrend = async (req, res) => {
+  const limitNumber = 20;
+  const recipe = await Recipe.find({}).sort({ _id: -1 }).limit(limitNumber);
+  res.render("see-trend", { title: "Trending", recipe });
+};
