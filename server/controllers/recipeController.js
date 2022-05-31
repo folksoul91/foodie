@@ -4,7 +4,7 @@ const Recipe = require("../models/recipe");
 
 // Homepage
 exports.homepage = async (req, res) => {
-  const limitNumber = 5;
+  const limitNumber = 6;
   const categories = await Category.find({}).limit(limitNumber);
   const trending = await Recipe.find({}).sort({ _id: -1 }).limit(limitNumber);
   const american = await Recipe.find({ category: "American" }).limit(
@@ -42,5 +42,9 @@ exports.navigateRecipe = async (req, res) => {
 
 // Search route
 exports.searchForRecipe = async (req, res) => {
-  res.render("search", { title: "Search" });
+  let searchRecipe = req.body.searchRecipe;
+  let recipe = await Recipe.find({
+    $text: { $search: searchRecipe, $diacriticSensitive: true },
+  });
+  res.render("search", { title: "Search", recipe });
 };
