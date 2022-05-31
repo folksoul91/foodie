@@ -9,8 +9,10 @@
     </li>
   </ol>
 </nav>
+
 <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3 mb-4">
-  <% if (categories !== '') { %> <% categories.forEach((category, index) =>{ %>
+  <% if (typeof categories !== 'undefined' && categories.length >0) { %> <%
+  categories.forEach((category, index) =>{ %>
   <a
     href="/categories/<%- category.name %>"
     class="col text-center category-link"
@@ -21,4 +23,18 @@
     <div class="pt-1"><%- category.name %></div>
   </a>
   <% }) %> <% } %>
+</div>
+
+<div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+  <% if (typeof categoryById !== 'undefined' && categoryById.length >0) { %> <%
+  categoryById.forEach((recipe, index)=>{ %>
+  <a href="/recipe/<%= recipe._id %>" class="col text-center trending-link">
+    <div class="trending-img shadow">
+      <img src="/uploads/<%= recipe.image %>" alt="<%= recipe.name %>" />
+    </div>
+    <div class="pt-1"><%= recipe.name %></div>
+  </a>
+  <% }) %> <% } else { %>
+  <p>No recipes found...</p>
+  <% } %>
 </div>
