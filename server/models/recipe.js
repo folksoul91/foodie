@@ -24,5 +24,8 @@ const recipeSchema = new mongoose.Schema({
   },
 });
 
+// specifying the fields for the search box - name/description
+recipeSchema.index({ name: "text", description: "text" });
+
 const Recipe = mongoose.model("Recipe", recipeSchema);
 module.exports = Recipe;
