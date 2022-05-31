@@ -21,41 +21,23 @@
 </div>
 <!-- Category -->
 <div class="category-div row row-cols-2 row-cols-lg-6 g-2 g-lg-3">
-  <a href="#" class="col text-center category-link">
+  <% if (categories !== '') { %> <% categories.forEach((category, index) =>{ %>
+  <a
+    href="/categories/<%- category.name %>"
+    class="col text-center category-link"
+  >
     <div class="category-img shadow">
-      <img src="img/burger.png" alt="" />
+      <img src="img/<%- category.image %>" alt="<%- category.name %>" />
     </div>
-    <div class="pt-1">Something</div>
+    <div class="pt-1"><%- category.name %></div>
   </a>
-  <a href="#" class="col text-center category-link">
-    <div class="category-img shadow">
-      <img src="img/tacos.png" alt="" />
-    </div>
-    <div class="pt-1">Something</div>
-  </a>
-  <a href="#" class="col text-center category-link">
-    <div class="category-img shadow">
-      <img src="img/thai.png" alt="" />
-    </div>
-    <div class="pt-1">Something</div>
-  </a>
-  <a href="#" class="col text-center category-link">
-    <div class="category-img shadow">
-      <img src="img/korean.png" alt="" />
-    </div>
-    <div class="pt-1">Something</div>
-  </a>
-  <a href="#" class="col text-center category-link">
-    <div class="category-img shadow">
-      <img src="img/chinese.png" alt="" />
-    </div>
-    <div class="pt-1">Something</div>
-  </a>
+  <% }) %> <% } %>
+
   <a href="#" class="col text-center category-link">
     <div class="category-img shadow">
       <img src="img/curry.png" alt="" />
     </div>
-    <div class="pt-1">Something</div>
+    <div class="pt-1">Hungry for more?</div>
   </a>
 </div>
 
