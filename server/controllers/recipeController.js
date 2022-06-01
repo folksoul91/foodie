@@ -5,15 +5,11 @@ const Recipe = require("../models/recipe");
 // Homepage
 exports.homepage = async (req, res) => {
   const limitNumber = 6;
+  const limitNumbers = 5;
   const categories = await Category.find({}).limit(limitNumber);
-  const trending = await Recipe.find({}).sort({ _id: -1 }).limit(limitNumber);
-  const american = await Recipe.find({ category: "American" }).limit(
-    limitNumber
-  );
-  const thai = await Recipe.find({ category: "Thai" }).limit(limitNumber);
-  const chinese = await Recipe.find({ category: "Chinese" }).limit(limitNumber);
-  const food = { trending, american, thai, chinese };
-  res.render("index", { title: "homepage", categories, food });
+  const trending = await Recipe.find({}).sort({ _id: -1 }).limit(limitNumbers);
+
+  res.render("index", { title: "homepage", categories, trending });
 };
 
 // Navigate Categories
@@ -54,4 +50,63 @@ exports.seeTrend = async (req, res) => {
   const limitNumber = 20;
   const recipe = await Recipe.find({}).sort({ _id: -1 }).limit(limitNumber);
   res.render("see-trend", { title: "Trending", recipe });
+};
+
+// Submit Recipe - New
+exports.submitRecipe = async (req, res) => {
+  res.render("submit-recipe", { title: "Submit Recipe" });
+};
+
+// Submit Recipe - Create
+exports.submitRecipePost = async (req, res) => {
+  let imageUploadFile;
+  let uploadPath;
+  let newImageName;
+
+  if (!req.files || Object.keys(req.files).length === 0) {
+    console.log("No Files where uploaded.");
+  } else {
+    imageUploadFile = req.files.image;
+    newImageName = Date.now() + imageUploadFile.name;
+
+    uploadPath =
+      require("path").resolve("./") + "/public/uploads/" + newImageName;
+
+    imageUploadFile.mv(uploadPath, function (err) {
+      if (err) return res.status(500).send(err);
+    });
+  }
+
+  const newRecipe = new Recipe({
+    name: req.body.name,
+    description: req.body.description,
+    email: req.body.email,
+    ingredients: req.body.ingredients,
+    category: req.body.category,
+    image: newImageName,
+  });
+  await newRecipe.save();
+  res.redirect("/submit-recipe");
+};
+
+// delete
+exports.recipeDelete = (req, res) => {
+  Recipe.findByIdAndRemove(req.params.id, (err, deletedRecipe) => {
+    res.redirect("/");
+  });
+};
+
+//update
+exports.recipeUpdate = (req, res) => {
+  Recipe.findByIdAndUpdate(req.params.id, req.body, (err, updatedEdit) => {
+    res.redirect("/recipe/" + updatedEdit._id);
+  });
+};
+
+//edit
+exports.recipeEdit = (req, res) => {
+  Recipe.findById(req.params.id, (err, foundEdit) => {
+    // console.log(foundEdit);
+    res.render("edit", { title: "edit", edit: foundEdit });
+  });
 };
