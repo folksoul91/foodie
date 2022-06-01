@@ -1,15 +1,19 @@
 // Dependencies
 const express = require("express");
 const router = express.Router();
-const recipeController = require("../controllers/recipeController");
+const Controller = require("../controllers/recipeController");
 
 // mounting routes
-router.get("/", recipeController.homepage);
-router.get("/recipe/:id", recipeController.navigateRecipe);
-router.get("/categories", recipeController.navigateCategories);
-router.get("/categories/:id", recipeController.navigateCategoriesById);
-router.post("/search", recipeController.searchForRecipe);
-router.get("/trending", recipeController.seeTrend);
-router.get("/submit-recipe", recipeController.submitRecipe);
+router.get("/", Controller.homepage);
+router.get("/recipe/:id", Controller.navigateRecipe);
+router.get("/categories", Controller.navigateCategories);
+router.get("/categories/:id", Controller.navigateCategoriesById);
+router.post("/search", Controller.searchForRecipe);
+router.get("/trending", Controller.seeTrend);
+router.get("/submit-recipe", Controller.submitRecipe);
+router.post("/submit-recipe", Controller.submitRecipePost);
+router.delete("/recipe/:id", Controller.recipeDelete);
+router.put("/recipe/:id", Controller.recipeUpdate);
+router.get("/recipe/:id/edit", Controller.recipeEdit);
 
 module.exports = router;
