@@ -3,17 +3,17 @@
 ## Table of Contents
 
 - [Description](#Description)
+- [Wireframe](#Wireframe)
 - [User Story](#user-story)
 - [Getting Started](#getting-started)
 - [Technologies](#technologies)
-- [API](#API)
 - [Future Improvements](#future-improvements)
 
 ## Description
 
 ---
 
-Looking to find your favorite recipe? you came to the right place!
+Foodie is a recipe repository that allows users to search for delicious recipes. User can browse trending recipes, browse for recipes by category, or search for recipes by keyword. Users are also able to upload their own recipes, edit them, and delete them.
 
 ## Wireframe
 
@@ -35,13 +35,13 @@ Deployed Website:https://recipe-blog-awesome.herokuapp.com/
 
 ---
 
-Foodie is a recipe repository that allows users to search for delicious recipes. User can browse trending recipes, browse for recipes by category, or search for recipes by keyword. Users are also able to upload their own recipes, edit them, and delete them.
+As a user, I want to have a place to browse, upload, edit, and delete recipes, so that I can get new ideas for meals and share my ideas with others.
 
 ## Getting Started
 
 ---
 
-Navigate throughout the page. Explore the page by clicking on the category button to see all your favorite recipes by categories.Post your favorite recipes on the submit page and check it out on the trending section from the main page.
+Navigate throughout the page. Explore the page by clicking on the category button to see all your favorite recipes by categories. Post your favorite recipes on the submit page and check it out on the trending section from the main page.
 
 ## Technologies
 
@@ -51,7 +51,7 @@ Navigate throughout the page. Explore the page by clicking on the category butto
 - Express
 - MongoDB
 - Mongoose
-- Boostrap
+- Bootstrap
 - CSS
 - EJS
 - Figma
@@ -63,5 +63,5 @@ Navigate throughout the page. Explore the page by clicking on the category butto
 
 For future improvements I will include...
 
-- create contact me page
-- create upload image section and save those uploaded images unto a folder when the recipes are created
+- add authentication for users submitting recipes
+- create a way for the user to upload an image with their recipe submission
