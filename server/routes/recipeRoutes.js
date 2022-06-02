@@ -5,6 +5,7 @@ const Controller = require("../controllers/recipeController");
 
 // mounting routes
 router.get("/", Controller.homepage);
+router.get("/about", Controller.about);
 router.get("/recipe/:id", Controller.navigateRecipe);
 router.get("/categories", Controller.navigateCategories);
 router.get("/categories/:id", Controller.navigateCategoriesById);
