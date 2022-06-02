@@ -10,6 +10,12 @@ body {
 a {
   color: var(--bs-dark);
 }
+footer {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
 .master-container {
   max-width: 1520px;
   padding-right: 3rem;
@@ -54,10 +60,10 @@ a {
   font-size: 18px;
 }
 
-.footer {
+/* .footer {
   padding-top: 3rem;
   padding-bottom: 3rem;
-}
+} */
 
 .index-container {
   padding-top: 1.5rem;
@@ -78,6 +84,13 @@ a {
   display: block;
   font-size: 67px;
   font-weight: 600;
+}
+.btn1 {
+  background-color: #55c66d;
+  color: white;
+}
+.btn2:hover {
+  background-color: #55c66d;
 }
 .btn {
   padding-right: 1.5rem;
@@ -144,4 +157,12 @@ a {
 .category-img img {
   width: 100%;
   object-fit: cover;
+}
+.submit-section {
+  background-color: #55c66d;
+  color: white;
+}
+
+.btn3 {
+  background-color: white;
 }
