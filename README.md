@@ -41,7 +41,7 @@ Foodie is a recipe repository that allows users to search for delicious recipes.
 
 ---
 
-Post your favorite recipes on the submit page.
+Navigate throughout the page. Explore the page by clicking on the category button to see all your favorite recipes by categories.Post your favorite recipes on the submit page and check it out on the trending section from the main page.
 
 ## Technologies
 
@@ -63,6 +63,5 @@ Post your favorite recipes on the submit page.
 
 For future improvements I will include...
 
-- create about page
 - create contact me page
 - create upload image section and save those uploaded images unto a folder when the recipes are created
