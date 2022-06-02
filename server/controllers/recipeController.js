@@ -12,6 +12,11 @@ exports.homepage = async (req, res) => {
   res.render("index", { title: "homepage", categories, trending });
 };
 
+// About
+exports.about = async (req, res) => {
+  res.render("about", { title: "about" });
+};
+
 // Navigate Categories
 exports.navigateCategories = async (req, res) => {
   const limitNumber = 15;
@@ -65,6 +70,7 @@ exports.submitRecipePost = async (req, res) => {
     email: req.body.email,
     ingredients: req.body.ingredients,
     category: req.body.category,
+    image: "Easy-Thai-Chicken.png",
   });
   await newRecipe.save();
   res.redirect("/submit-recipe");
