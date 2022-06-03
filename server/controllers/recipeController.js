@@ -13,8 +13,13 @@ exports.homepage = async (req, res) => {
 };
 
 // About
-exports.about = async (req, res) => {
-  res.render("about", { title: "about" });
+exports.about = (req, res) => {
+  res.render("about", { title: "About" });
+};
+
+// Contact
+exports.contact = (req, res) => {
+  res.render("contact", { title: "Contact" });
 };
 
 // Navigate Categories
@@ -50,7 +55,7 @@ exports.searchForRecipe = async (req, res) => {
   res.render("search", { title: "Search", recipe });
 };
 
-// See Trending - button
+// See Trending
 exports.seeTrend = async (req, res) => {
   const limitNumber = 20;
   const recipe = await Recipe.find({}).sort({ _id: -1 }).limit(limitNumber);
@@ -58,7 +63,7 @@ exports.seeTrend = async (req, res) => {
 };
 
 // Submit Recipe - New
-exports.submitRecipe = async (req, res) => {
+exports.submitRecipe = (req, res) => {
   res.render("submit-recipe", { title: "Submit Recipe" });
 };
 
@@ -93,7 +98,6 @@ exports.recipeUpdate = (req, res) => {
 //edit
 exports.recipeEdit = (req, res) => {
   Recipe.findById(req.params.id, (err, foundEdit) => {
-    // console.log(foundEdit);
     res.render("edit", { title: "edit", edit: foundEdit });
   });
 };
