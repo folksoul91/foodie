@@ -4,10 +4,12 @@ const Recipe = require("../models/recipe");
 
 // Homepage
 exports.homepage = async (req, res) => {
-  const limitNumber = 6;
-  const limitNumbers = 5;
-  const categories = await Category.find({}).limit(limitNumber);
-  const trending = await Recipe.find({}).sort({ _id: -1 }).limit(limitNumbers);
+  const max_category_results = 6;
+  const max_recipe_results = 5;
+  const categories = await Category.find({}).limit(max_category_results);
+  const trending = await Recipe.find({})
+    .sort({ _id: -1 })
+    .limit(max_recipe_results);
 
   res.render("index", { title: "homepage", categories, trending });
 };
@@ -24,17 +26,17 @@ exports.contact = (req, res) => {
 
 // Navigate Categories
 exports.navigateCategories = async (req, res) => {
-  const limitNumber = 15;
-  const categories = await Category.find({}).limit(limitNumber);
+  const max_category_results = 15;
+  const categories = await Category.find({}).limit(max_category_results);
   res.render("categories.ejs", { title: "Categories", categories });
 };
 
 // Navigate Categories by Id
 exports.navigateCategoriesById = async (req, res) => {
   let categoryId = req.params.id;
-  const limitNumber = 15;
+  const max_category_results = 15;
   const categoryById = await Recipe.find({ category: categoryId }).limit(
-    limitNumber
+    max_category_results
   );
   res.render("categories.ejs", { title: "Categories", categoryById });
 };
@@ -57,8 +59,10 @@ exports.searchForRecipe = async (req, res) => {
 
 // See Trending
 exports.seeTrend = async (req, res) => {
-  const limitNumber = 20;
-  const recipe = await Recipe.find({}).sort({ _id: -1 }).limit(limitNumber);
+  const max_category_results = 20;
+  const recipe = await Recipe.find({})
+    .sort({ _id: -1 })
+    .limit(max_category_results);
   res.render("see-trend", { title: "Trending", recipe });
 };
 
