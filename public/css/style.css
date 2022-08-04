@@ -281,3 +281,32 @@ footer {
 .contact-form .input-box input[type="submit"]:hover {
   transform: scale(1.1);
 }
+
+@media (max-width: 991px) {
+  .contact {
+    padding: 50px;
+  }
+  .contact-container {
+    flex-direction: column;
+  }
+  .contact-container .contact-info {
+    margin-bottom: 40px;
+  }
+  .contact-container .contact-info .contact-form {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .master-header {
+    width: 100%;
+    justify-content: center;
+  }
+  .contact-container {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .contact-form {
+    width: 100%;
+  }
+}
